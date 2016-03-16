@@ -1,0 +1,49 @@
+{
+  "name": "es6-and-beyond",
+  "version": "1.0.0",
+  "description": "A collecton of notes on ES6",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc ava",
+    "report": "nyc report --reporter=html",
+    "test:watch": "nyc ava --watch",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "ES6"
+  ],
+  "author": "Owain Llewellyn <owain.llew@gmail.com> (http://owzzz.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "ava": "^0.13.0",
+    "nyc": "^6.1.1"
+  },
+  "ava": {
+    "files": [
+      "./tests/**/*.js"
+    ],
+    "source": [
+      "./es6/*.js"
+    ],
+    "match": [],
+    "failFast": true,
+    "tap": true,
+    "require": [
+      "babel-register"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "transform-runtime"
+    ],
+    "ignore": "test.js",
+    "env": {
+      "development": {
+        "sourceMaps": "inline"
+      }
+    }
+  }
+}
